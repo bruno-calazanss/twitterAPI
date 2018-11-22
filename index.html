@@ -1,0 +1,101 @@
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Tweets presidenciáveis</title>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/jumbotron.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark text-center">
+    <span class="navbar-brand">Tweets presidenciáveis</span>
+  </nav>
+
+  <div class="container pt-4">
+    <div class="row justify-content-center">
+      <div class="col-4 text-center">
+        <button class="btn w-75 mb-2" id="alvaro">
+          <span class="h4 font-weight-normal">Álvaro Dias</span>
+        </button>
+        <button class="btn w-75 mb-2" id="daciolo">
+          <span class="h4 font-weight-normal">Cabo Daciolo</span>
+        </button>
+        <button class="btn w-75 mb-2" id="ciro">
+          <span class="h4 font-weight-normal">Ciro Gomes</span>
+        </button>
+        <button class="btn w-75 mb-2" id="haddad">
+          <span class="h4 font-weight-normal">Fernando Haddad</span>
+        </button>
+        <button class="btn w-75 mb-2" id="alckmin">
+          <span class="h4 font-weight-normal">Geraldo Alckmin</span>
+        </button>
+        <button class="btn w-75 mb-2" id="boulos">
+          <span class="h4 font-weight-normal">Guilherme Boulos</span>
+        </button>
+        <button class="btn w-75 mb-2" id="meirelles">
+          <span class="h4 font-weight-normal">Henrique Meirelles</span>
+        </button>
+        <button class="btn w-75 mb-2" id="bolsonaro">
+          <span class="h4 font-weight-normal">Jair Bolsonaro</span>
+        </button>
+        <button class="btn w-75 mb-2" id="amoedo">
+          <span class="h4 font-weight-normal">João Amoêdo</span>
+        </button>
+        <button class="btn w-75 mb-2" id="goulart">
+          <span class="h4 font-weight-normal">João Goulart Filho</span>
+        </button>
+        <button class="btn w-75 mb-2" id="eymael">
+          <span class="h4 font-weight-normal">José Maria Eymael</span>
+        </button>
+        <button class="btn w-75 mb-2" id="marina">
+          <span class="h4 font-weight-normal">Marina Silva</span>
+        </button>
+        <button class="btn w-75 mb-2" id="vera">
+          <span class="h4 font-weight-normal">Vera Lúcia</span>
+        </button>
+      </div>
+      <div class="col-6" id="timeline"></div>
+    </div>
+  </div>
+
+  <script src="jquery/jquery-3.3.1.slim.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://platform.twitter.com/widgets.js"></script>
+
+  <script>
+    function carregarTweets(candidato) {
+      $("#timeline").empty();
+      twttr.widgets.createTimeline(
+        {
+          sourceType: "profile",
+          screenName: candidato
+        },
+        document.getElementById("timeline")
+      );
+      $(document).scrollTop(0);
+    }
+
+    window.onload = function () {
+      $("#alvaro").on('click', function () { carregarTweets("alvarodias_") });
+      $("#daciolo").on('click', function () { carregarTweets("CaboDaciolo") });
+      $("#ciro").on('click', function () { carregarTweets("cirogomes") });
+      $("#haddad").on('click', function () { carregarTweets("Haddad_Fernando") });
+      $("#alckmin").on('click', function () { carregarTweets("geraldoalckmin") });
+      $("#boulos").on('click', function () { carregarTweets("GuilhermeBoulos") });
+      $("#meirelles").on('click', function () { carregarTweets("meirelles") });
+      $("#bolsonaro").on('click', function () { carregarTweets("jairbolsonaro") });
+      $("#amoedo").on('click', function () { carregarTweets("joaoamoedonovo") });
+      $("#goulart").on('click', function () { carregarTweets("joaogoulart54") });
+      $("#eymael").on('click', function () { carregarTweets("Eymaeloficial") });
+      $("#marina").on('click', function () { carregarTweets("MarinaSilva") });
+      $("#vera").on('click', function () { carregarTweets("verapstu") });
+    };
+  </script>
+
+</body>
+
+</html>
